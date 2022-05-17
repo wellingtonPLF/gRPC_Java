@@ -1,0 +1,28 @@
+syntax="proto3";
+package usuarioProto;
+
+option java_multiple_files = true;
+option java_package = "project.grpc.pd.protos";
+option java_outer_classname = "userProtos";
+
+service UsuarioProto {
+  rpc usuarioPorId(UserIdRequest) returns (UserResponse) {}
+}
+
+// Entity
+
+message Usuario {
+  int32 id = 1;
+  string nome = 2;
+}
+
+// Requests
+
+message UserIdRequest {
+  int32 id = 1;
+}
+
+// Responses
+message UserResponse {
+  Usuario user = 1;
+}
